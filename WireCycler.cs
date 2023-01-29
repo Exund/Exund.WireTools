@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +47,7 @@ namespace Exund.WireTools
             var spawnParams = Commons.GetTechReplaceParams(tech);
             var data = spawnParams.techData;
 
+            var changed = false;
             for (int i = 0; i < data.m_BlockSpecs.Count; i++)
             {
                 var blockSpec = data.m_BlockSpecs[i];
@@ -55,12 +56,16 @@ namespace Exund.WireTools
                 {
                     blockSpec.m_BlockType = mapping[type];
                     data.m_BlockSpecs[i] = blockSpec;
+                    changed = true;
                 }
             }
 
-            var replacement = ManSpawn.inst.SpawnTankRef(spawnParams, true);
-            tech.visible.RemoveFromGame();
-            ManTechs.inst.RequestSetPlayerTank(replacement.visible.tank, false);
+            if (changed)
+            {
+                var replacement = ManSpawn.inst.SpawnTankRef(spawnParams, true);
+                tech.visible.RemoveFromGame();
+                ManTechs.inst.RequestSetPlayerTank(replacement.visible.tank, false);
+            }
         }
     }
 }

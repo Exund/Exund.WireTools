@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +26,7 @@ namespace Exund.WireTools
                 position = tech.boundsCentreWorld,
                 rotation = tech.trans.rotation,
                 grounded = tech.grounded,
-                placement = ManSpawn.TankSpawnParams.Placement.BoundsCentredAtPosition
+                placement = tech.IsAnchored ? ManSpawn.TankSpawnParams.Placement.BaseCentredAtPosition : ManSpawn.TankSpawnParams.Placement.BoundsCentredAtPosition,
             };
 
             return spawnParams;
