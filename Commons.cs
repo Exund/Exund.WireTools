@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace Exund.WireTools
         public static readonly BlockTypes G = BlockTypes.EXP_Circuits_Wire_Green_111;
         public static readonly BlockTypes B = BlockTypes.EXP_Circuits_Wire_Blue_111;
 
-        public static readonly BlockTypes[] Wires = new[] { R, G, B };
+        public static readonly BlockTypes[] Wires = { R, G, B };
 
         public static ManSpawn.TankSpawnParams GetTechReplaceParams(Tank tech)
         {

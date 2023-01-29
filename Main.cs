@@ -71,9 +71,9 @@ namespace Exund.WireTools
 
             const string ModName = "Wire Tools";
 
-            var ForwardKey = new OptionKey("Cycle wires forward (Alt+?)", ModName, config.CycleForward);
-            var BackwardKey = new OptionKey("Cycle wires backward (Alt+?)", ModName, config.CycleBackward);
-            var SwapKey = new OptionKey("Swap wires menu (Alt+?)", ModName, config.Swap);
+            var ForwardKey = new OptionKey("Cycle wires forward (Alt + ?)", ModName, config.CycleForward);
+            var BackwardKey = new OptionKey("Cycle wires backward (Alt + ?)", ModName, config.CycleBackward);
+            var SwapKey = new OptionKey("Swap wires menu (Alt + ?)", ModName, config.Swap);
 
 
             ForwardKey.onValueSaved.AddListener(() => { configFile[Forward] = (int)ForwardKey.SavedValue; });
@@ -92,20 +92,11 @@ namespace Exund.WireTools
 
             public int _swap = (int)KeyCode.S;
 
-            public KeyCode CycleForward
-            {
-                get => (KeyCode)_cycleForward;
-            }
+            public KeyCode CycleForward => (KeyCode)_cycleForward;
 
-            public KeyCode CycleBackward
-            {
-                get => (KeyCode)_cycleBackward;
-            }
+            public KeyCode CycleBackward => (KeyCode)_cycleBackward;
 
-            public KeyCode Swap
-            {
-                get => (KeyCode)_swap;
-            }
+            public KeyCode Swap => (KeyCode)_swap;
         }
     }
 }

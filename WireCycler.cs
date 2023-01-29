@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +32,7 @@ namespace Exund.WireTools
             var forwards = Input.GetKeyDown(Main.config.CycleForward);
             var backwards = Input.GetKeyDown(Main.config.CycleBackward);
 
-            if (Input.GetKey(KeyCode.LeftAlt) && (forwards || backwards))
+            if (Event.current.alt && (forwards || backwards))
             {
                 Cycle(backwards);
             }

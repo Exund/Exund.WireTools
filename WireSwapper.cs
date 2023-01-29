@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ namespace Exund.WireTools
 
         private void Update()
         {
-            useGUILayout = Singleton.playerTank && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(Main.config.Swap);
+            useGUILayout = Singleton.playerTank && Event.current.alt && Input.GetKey(Main.config.Swap);
         }
 
         private void OnGUI()
