@@ -11,8 +11,10 @@ namespace Exund.WireTools
         public static readonly BlockTypes R = BlockTypes.EXP_Circuits_Wire_Red_111;
         public static readonly BlockTypes G = BlockTypes.EXP_Circuits_Wire_Green_111;
         public static readonly BlockTypes B = BlockTypes.EXP_Circuits_Wire_Blue_111;
+        public static readonly BlockTypes Y = BlockTypes.EXP_Circuits_Wire_Yellow_111;
 
-        public static readonly BlockTypes[] Wires = { R, G, B };
+        public static readonly BlockTypes[] Wires = { R, G, B, Y };
+        public static readonly string[] Names = { "R", "G", "B", "Y" };
 
         public static ManSpawn.TankSpawnParams GetTechReplaceParams(Tank tech)
         {

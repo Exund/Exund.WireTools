@@ -16,17 +16,32 @@ namespace Exund.WireTools
             public BlockTypes t2;
         }
 
-        public List<Swap> swaps = new List<Swap>
-        {
-            new Swap { name = "R <-> G", t1 = Commons.R, t2 = Commons.G },
-            new Swap { name = "G <-> B", t1 = Commons.G, t2 = Commons.B },
-            new Swap { name = "B <-> R", t1 = Commons.B, t2 = Commons.R }
-        };
+        public static List<Swap> swaps = new List<Swap>();
 
-        private static readonly int id = GUIUtility.GetControlID(FocusType.Passive);
+        static WireSwapper()
+        {
+            var wires = Commons.Wires;
+            var l = wires.Length;
+            var names = Commons.Names;
+
+            for (var i = 0; i < l; i++)
+            {
+                for (var j = i + 1; j < l; j++)
+                {
+                    swaps.Add(new Swap
+                    {
+                        name = names[i] + " <-> " + names[j],
+                        t1 = wires[i],
+                        t2 = wires[j]
+                    });
+                }
+            }
+        }
+
+        private static readonly int ID = GUIUtility.GetControlID(FocusType.Passive);
 
         private const float WIDTH = 150f;
-        private const float HEIGHT = 100f;
+        private const float HEIGHT = 250f;
 
         private void Update()
         {
@@ -41,17 +56,19 @@ namespace Exund.WireTools
             }
 
             var rect = new Rect(Screen.width - WIDTH, (Screen.height - HEIGHT) * 0.5f, WIDTH, HEIGHT);
-            GUI.Window(id, rect, DoWindow, "Swap wires");
+            GUI.Window(ID, rect, DoWindow, "Swap wires");
         }
 
         private void DoWindow(int id)
         {
+            GUILayout.FlexibleSpace();
             foreach (var swap in swaps)
             {
                 if (GUILayout.Button(swap.name))
                 {
                     SwapWires(swap);
                 }
+                GUILayout.FlexibleSpace();
             }
         }
 

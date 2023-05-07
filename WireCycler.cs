@@ -12,14 +12,16 @@ namespace Exund.WireTools
         {
             { Commons.R, Commons.G },
             { Commons.G, Commons.B },
-            { Commons.B, Commons.R }
+            { Commons.B, Commons.Y },
+            { Commons.Y, Commons.R }
         };
 
         private static readonly Dictionary<BlockTypes, BlockTypes> BackwardMapping = new Dictionary<BlockTypes, BlockTypes>
         {
-            { Commons.R, Commons.B },
+            { Commons.R, Commons.Y },
             { Commons.G, Commons.R },
-            { Commons.B, Commons.G }
+            { Commons.B, Commons.G },
+            { Commons.Y, Commons.B }
         };
 
         private void Update()
